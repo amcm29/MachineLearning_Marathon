@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Components</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <!-- javaScript links to enable dropdown functionality -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  
+    <div class="page-header">
+        <h1>Marathon Splits Project with Machine Learning</h1>
+      </div>
+  
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">Home</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Houston Race Results History <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Boston Race Results History</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-5">
+            <a href="#" class="thumbnail">
+                <img src="C:\Users\dbatt\Documents\Analytics Bootcamp\FINAL PROJECT\bostonmarathon-finish.jpg">
+            </a>
+        </div>
+        <div class="col-md-5 col-md-5">
+            <h2>Split Times for Ideal Finish</h2>
+            <h2></h2>
+            <h4>Planning pace of splits directly impacts an individuals finish time.</h4>
+            <h2></h2>
+            <h4>Let us plan your splits! Input age, gender, bib number, anticipated race day temperature, and finish time goal.</h4>
+            <h2></h2>
+            <h4>We will provide anticipated split times to meet that goal.</h4>
+            <h2></h2>
+            <h4>Our machine learning model has been trained using Boston Marathon race results from 2015, 2016, 2017.</h4>
+        </div>        
+    </div>
+  </div>        
+
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-2">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Age</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                </div>
+          </div>
+          <div class="col-sm-2">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+
+
+
+  <div class="container">
+    
+    <div class="row">
+      <h3 class="text-center">Panels</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3 class="text-center">Nav Tabs</h3>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <h3 class="text-center">Nav Pills</h3>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+      </ul>
+    </div>
+
+
+    <div class="row">
+      <h3 class="text-center">Buttons</h3>
+      <button class="btn btn-default">Default Button</button>
+      <button class="btn btn-primary">Primary Button</button>
+      <button class="btn btn-danger">Danger Button</button>
+      <button class="btn btn-info">Info Button</button>
+      <button class="btn btn-warning">Warning Button</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
