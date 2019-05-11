@@ -14,7 +14,7 @@
 <body>
   
     <div class="page-header">
-        <h1>Marathon Splits Project with Machine Learning</h1>
+        <h1> Marathon Splits Project with Machine Learning</h1>
       </div>
   
     <nav class="navbar navbar-default">
@@ -33,7 +33,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Houston Race Results History <span class="sr-only">(current)</span></a></li>
+          <!-- <li class="active"><a href="#">Houston Race Results History <span class="sr-only">(current)</span></a></li> -->
           <li><a href="#">Boston Race Results History</a></li>
         </ul>
       </div>
@@ -46,90 +46,95 @@
     <div class="row">
         <div class="col-md-5 col-md-5">
             <a href="#" class="thumbnail">
-                <img src="C:\Users\dbatt\Documents\Analytics Bootcamp\FINAL PROJECT\bostonmarathon-finish.jpg">
+                <img src="C:\Users\dbatt\Documents\Analytics Bootcamp\FINAL PROJECT\MachineLearning_Marathon\Flask_App\static\images\bostonmarathon-finish.jpg">
             </a>
         </div>
         <div class="col-md-5 col-md-5">
-            <h2>Split Times for Ideal Finish</h2>
+            <h3>The Boston Marathon</h3>
             <h2></h2>
-            <h4>Planning pace of splits directly impacts an individuals finish time.</h4>
+            <h5>The legendary Boston Marathon course follows a point-to-point route from rural Hopkinton to Boston and is certified per the guidelines set forth by the IAAF and USA Track and Field.</h5>
             <h2></h2>
-            <h4>Let us plan your splits! Input age, gender, bib number, anticipated race day temperature, and finish time goal.</h4>
+            <h5>If run wisely and with patience, the course can be very fast. However, many runners who are aggressive in the early downhill miles may struggle once they reach the Newton Hills and/or the downhill/flat last 10K.</h5>
             <h2></h2>
-            <h4>We will provide anticipated split times to meet that goal.</h4>
+            <h5>Planning pace of splits directly impacts an individuals finish time.</h5>
             <h2></h2>
-            <h4>Our machine learning model has been trained using Boston Marathon race results from 2015, 2016, 2017.</h4>
+            <h5>Let us plan your splits! Input age, gender, bib number, anticipated race day temperature, and ideal finish time goal. We will provide anticipated split times to meet that goal.</h5>
+            <h2></h2>
+            <h5>Our machine learning model has been trained using Boston Marathon race results and split times from 2015, 2016, 2017.</h5>
         </div>        
     </div>
   </div>        
 
   <div class="container">
-      <div class="row">
-          <div class="col-sm-2">
-                <div class="input-group input-group-lg">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg">Age</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-                </div>
+    <div class="row">  
+      <div class="col-md-5 col-md-5">
+        <h3 class="text-center">Inputs</h3>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Input Details</h3>
           </div>
-          <div class="col-sm-2">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Gender</label>
-                        <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>Choose...</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
+          <div class="panel-body">
+            <form method="POST" action="/send">
+            
+              <div class="form-group">
 
+                <label for="inputBib">Bib</label>
+                <input type="text" class="form-control" id="inputBib" name="bib">
+                <h5></h5>
 
+                <label for="inputAge">Age</label>
+                <input type="text" class="form-control" id="inputAge" name="age">
+                <h5></h5>
 
-  <div class="container">
-    
-    <div class="row">
-      <h3 class="text-center">Panels</h3>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
+                <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <select class="form-control" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+                <h5></h5>
+
+                <label for="inputTemp">Race Day Temperature</label>
+                <input type="text" class="form-control" id="inputTemp" placeholder="In Fahrenheit..." name="temp">
+                <h5></h5>
+
+                <label for="inputTime">Ideal Finish Time</label>
+                <input type="text" class="form-control" id="inputHours" placeholder="Hours..." name="time">
+                <input type="text" class="form-control" id="inputMinutes" placeholder="Minutes..." name="time">               
+                <h2></h2>
+                
+                <input class="btn btn-primary" type="submit" value="Submit">
+              </div>
+            </form>
+          </div>
+        </div>  
       </div>
-    </div>
-
-    <div class="row">
-      <h3 class="text-center">Nav Tabs</h3>
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul>
-    </div>
-
-    <div class="row">
-      <h3 class="text-center">Nav Pills</h3>
-      <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul>
-    </div>
-
-
-    <div class="row">
-      <h3 class="text-center">Buttons</h3>
-      <button class="btn btn-default">Default Button</button>
-      <button class="btn btn-primary">Primary Button</button>
-      <button class="btn btn-danger">Danger Button</button>
-      <button class="btn btn-info">Info Button</button>
-      <button class="btn btn-warning">Warning Button</button>
+      <div class="col-md-5 col-md-5">
+          <h3 class="text-center">Results</h3>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Split Results</h3>
+            </div>
+            <div class="panel-body">
+              <form method="POST" action="/send">
+                <div class="form-group">
+                    <ul class="list-group">
+                      <li class="list-group-item">5K Split: </li>
+                      <li class="list-group-item">10K Split: </li>
+                      <li class="list-group-item">15K Split: </li>
+                      <li class="list-group-item">20K Split: </li>
+                      <li class="list-group-item">Half Split: </li>
+                      <li class="list-group-item">25K Split: </li>
+                      <li class="list-group-item">30K Split: </li>
+                      <li class="list-group-item">35K Split: </li>
+                      <li class="list-group-item">40K Split: </li>
+                      <li class="list-group-item">Finish Time: </li>
+                    </ul>
+                </div>
+              </form>
+            </div>
+          </div>  
+      </div>
     </div>
   </div>
 
