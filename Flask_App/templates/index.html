@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col-md-5 col-md-5">
             <a href="#" class="thumbnail">
-                <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/bostonmarathon-finish.jpg">
+                <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/bostonmarathon-finish.jpg?raw=true">
             </a>
         </div>
         <div class="col-md-5 col-md-5">
@@ -99,8 +99,8 @@
                 <h5></h5>
 
                 <label for="inputTime">Ideal Finish Time</label>
-                <input type="text" class="form-control" id="inputHours" placeholder="Hours..." name="time">
-                <input type="text" class="form-control" id="inputMinutes" placeholder="Minutes..." name="time">               
+                <input type="text" class="form-control" id="inputHours" placeholder="Hours..." name="timeHours">
+                <input type="text" class="form-control" id="inputMinutes" placeholder="Minutes..." name="timeMinutes">               
                 <h2></h2>
 
                 <input class="btn btn-primary" type="submit" value="Submit">
@@ -119,16 +119,16 @@
               <form method="POST" action="/send">
                 <div class="form-group">
                     <ul class="list-group">
-                      <li class="list-group-item">5K Split: </li>
-                      <li class="list-group-item">10K Split: </li>
-                      <li class="list-group-item">15K Split: </li>
-                      <li class="list-group-item">20K Split: </li>
-                      <li class="list-group-item">Half Split: </li>
-                      <li class="list-group-item">25K Split: </li>
-                      <li class="list-group-item">30K Split: </li>
-                      <li class="list-group-item">35K Split: </li>
-                      <li class="list-group-item">40K Split: </li>
-                      <li class="list-group-item">Finish Time: </li>
+                      <li class="list-group-item">5K Split: <var>data[0]</var></li>
+                      <li class="list-group-item">10K Split: <var>data[1]</var></li>
+                      <li class="list-group-item">15K Split: <var>data[2]</var></li>
+                      <li class="list-group-item">20K Split: <var>data[3]</var></li>
+                      <li class="list-group-item">Half Split: <var>data[4]</var></li>
+                      <li class="list-group-item">25K Split: <var>data[5]</var></li>
+                      <li class="list-group-item">30K Split: <var>data[6]</var></li>
+                      <li class="list-group-item">35K Split: <var>data[7]</var></li>
+                      <li class="list-group-item">40K Split: <var>data[8]</var></li>
+                      <li class="list-group-item">Finish Time: <var>data[9]</var></li>
                     </ul>
                 </div>
               </form>
@@ -140,14 +140,12 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-5 col-md-5">
-          <a href="#" class="thumbnail">
-              <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/MarathonMap.jpg">
-          </a>
-      </div>
+      <a href="#" class="thumbnail">
+          <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/MarathonMap.PNG?raw=true">
+      </a>
     </div>
   </div>
-  
+
 </body>
 
 </html>
