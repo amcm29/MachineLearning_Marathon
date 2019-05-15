@@ -4,6 +4,8 @@ from flask import (
     render_template,
     request)
 
+import pickle
+from sklearn.externals import joblib
 
 app = Flask(__name__)
 
@@ -32,12 +34,38 @@ def send():
             "timeMinutes": minutes
         }
 
-        my_data.append(form_data)
+        dataList = []
 
-        return render_template('form.html', age=age, group="1", group="2", temperature = temperature, hours = hours, minutes = minutes)
+# Load the model from the file
+model_5K_from_joblib = joblib.load('model_5K.pkl')
+model_10K_from_joblib = joblib.load('model_10K.pkl')
+model_15K_from_joblib = joblib.load('model_15K.pkl')
+model_20K_from_joblib = joblib.load('model_20K.pkl')
+model_Half_from_joblib = joblib.load('model_Half.pkl')
+model_25K_from_joblib = joblib.load('model_25K.pkl')
+model_30K_from_joblib = joblib.load('model_30K.pkl')
+model_35K_from_joblib = joblib.load('model_35K.pkl')
+model_40K_from_joblib = joblib.load('model_40K.pkl')
+model_Final_from_joblib = joblib.load('model_Final.pkl')
+
+
+# Use the loaded model to make predictions
+data5 = model_5K_from_joblib.predict(form_data)
+data10 = model_10K_from_joblib.predict(form_data)
+data15 = model_15K_from_joblib.predict(form_data)
+data20 = model_20K_from_joblib.predict(form_data)
+dataHalf = model_Half_from_joblib.predict(form_data)
+data25 = model_25K_from_joblib.predict(form_data)
+data30 = model_30K_from_joblib.predict(form_data)
+data35 = model_35K_from_joblib.predict(form_data)
+data40 = model_40K_from_joblib.predict(form_data)
+dataFinal = model_Final_from_joblib.predict(form_data)
+
+
+        return render_template('index.html', bib = bib, age = age, group1="1", group2="2", temperature = temperature, hours = hours, minutes = minutes)
         
     if request.method == "GET":
-        return render_template("form.html")
+        return render_template("index.html")
 
 
 if __name__ == "__main__":
