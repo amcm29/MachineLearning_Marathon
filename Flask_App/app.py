@@ -18,23 +18,40 @@ def index():
 
 @app.route("/send", methods=["GET", "POST"])
 def send():
-    if request.method == "POST":
-        bib_number = int(request.form["bib"])
-        age = int(request.form["age"])
-        group1 = int(request.form["1"])
-        group2 = int(request.form["2"])
-        temperature = float(request.form["temp"])
-        hours = int(request.form["timeHours"])
-        minutes = float(request.form["timeMinutes"])
+    if request.method == "GET":
+        bib_number = int(request.form["inputBib"])
+        age = int(request.form["inputAge"])
+        group1 = int(request.form["inputGroupSelect01"])
+        if group1 = "Male" then genderm = "1" else genderm = "0"
+        if group1 = "Female" then genderf = "1" else genderf = "0"
+        temperature = float(request.form["inputTemp"])
+        timeh = int(request.form["inputHours"])
+        timem = int(request.form["inputMinutes"])
         form_data = {
-            "bib": int(bib_number),
-            "age": int(age),
-            "1": group1,
-            "2": group2,
-            "temp": temperature,
-            "timeHours": hours,
-            "timeMinutes": minutes
+            "Bib": int(bib_number),
+            "Age": int(age),
+            "Official Time Duration": int(time),
+            "F": int(genderf),
+            "M": int(genderm),
+            "Temp (F)": int(temperature)
         }
+
+
+seconds_in_hour = 3600
+seconds_in_minute = 60
+
+seconds = int(input("Enter a number of seconds: "))
+
+hours = seconds // seconds_in_hour
+seconds = seconds - (hours * seconds_in_hour)
+
+minutes = seconds // seconds_in_minute
+seconds = seconds - (minutes * seconds_in_minute)
+
+concat("{1:.0f} hours, {2:.0f} minutes, {3:.0f} seconds.".format(hours, minutes, seconds))
+
+df2=pd.DataFrame({'Bib':[25000], 'Age':[42],'Official Time Duration':[22175], 'F':[0], 'M':[1],'Temp (F)':[65]})
+model_5K.predict(df2)
 
 datatime = str(datetime.timedelta(seconds = (data5)))
 
