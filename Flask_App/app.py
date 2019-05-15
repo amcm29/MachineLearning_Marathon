@@ -7,6 +7,8 @@ from flask import (
 import pickle
 from sklearn.externals import joblib
 
+import datetime
+
 app = Flask(__name__)
 
 
@@ -34,7 +36,11 @@ def send():
             "timeMinutes": minutes
         }
 
-        dataList = []
+datatime = str(datetime.timedelta(seconds = (data5)))
+
+
+
+dataList = []
 
 # Load the model from the file
 model_5K_from_joblib = joblib.load('model_5K.pkl')
@@ -62,10 +68,26 @@ data40 = model_40K_from_joblib.predict(form_data)
 dataFinal = model_Final_from_joblib.predict(form_data)
 
 
-        return render_template('index.html', bib = bib, age = age, group1="1", group2="2", temperature = temperature, hours = hours, minutes = minutes)
+
+dataList.append.data5
+dataList.append.data10
+dataList.append.data15
+dataList.append.data20
+dataList.append.dataHalf
+dataList.append.data25
+dataList.append.data30
+dataList.append.data35
+dataList.append.data40
+dataList.append.Final
+
+
+
+
+
+return render_template('index.html', bib = bib, age = age, group1="1", group2="2", temperature = temperature, datatime)
         
-    if request.method == "GET":
-        return render_template("index.html")
+if request.method == "GET":
+   return render_template("index.html")
 
 
 if __name__ == "__main__":
