@@ -22,20 +22,18 @@ def index():
         # Extract the input
         bib = int(request.form['inputBib'])
         age = int(request.form['inputAge'])
-        gender = int(request.form['inputGroupSelector01'])
-            
-        temperature = int(request.form['inputTemp'])
         timeh = int(request.form['inputHours'])
         timeHsec=timeh*3600
         timem = int(request.form['inputMinutes'])
         timeMsec=timem*60
         inputTime = (timeMsec + timeHsec)
-
-
-
-
-        input_variables = pd.DataFrame([[bib, age, gender, temperature, inputTime]],
-                                        columns=['bib', 'age', 'gender','temperature', 'inputTime'],
+        if inputGroupSelector01 == 'Male':
+            F = 0 and M = 1
+        else:
+            F = 1 and M = 0
+        temperature = int(request.form['inputTemp'])
+        input_variables = pd.DataFrame([[bib, age,  inputTime, F, M, temperature]],
+                                        columns=['Bib', 'Age', 'Official Time Duration', 'F', 'M','Temp (F)'],
                                         dtype=int)
                                         # index=['input'])
 
