@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <div class="page-header" style="background-color: darkblue;padding:0px; margin: 0px 0 0px; border-top:1px solid;">
+      <h1 style="color:white;">Marathon Splits Project with Machine Learning</h1>
+    </div>
+
+    <!-- javaScript links to enable dropdown functionality -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body> 
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="index.html">Home</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a style="background-color: lightgray;" href="#">Machine Learning Model</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#" class="thumbnail">
+                <div class='tableauPlaceholder' id='viz1557972366337' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;BostonMarathonRaceResults&#47;Version2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BostonMarathonRaceResults&#47;Version2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;BostonMarathonRaceResults&#47;Version2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1557972366337');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </a>
+        </div>
+        <div class="col-md-4 col-md-4">
+            <h3>Data Source</h3>
+            <h2></h2>
+            <h5>Our race results data is sourced from a <a href="https://www.kaggle.com/rojour/boston-results">Kaggle Dataset</a>.</h5>
+            <h2></h2>
+            <h5>The dataset features three years of Boston Marathon Results data. Each year of data contained over 26,000 runners for a combined 79,000 rows of race results. The dataset population was about 45% female and 54% male.</h5>
+            <h2></h2>
+            <h5>We used several attributes to train and test the machine models: bib number, gender, age, and race day temperature. A seperate model was built to predict each split time interval.</h5>
+            <h2></h2>
+            <h5>The first 5k split time was predicted using the previously mentioned attributes. The next split time, the 10k, was predicting using those attributes as well as the result from the 5k model. We continued using the prediction results in subsequent models to obtain more acurate predictions.</h5>
+            <h2></h2>
+            <h5>Use the Tableau Public visual on the left to view the runner data points by bib number and official finish time!</h5>
+        </div>        
+    </div>
+  </div>        
+
+  <div class="container">
+    <div class="row">  
+      <div class="col-md-5 col-md-5">
+        <h3 class="text-center">Inputs</h3>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Input Details</h3>
+          </div>
+          <div class="panel-body">
+            <form method="POST" action="/send">
+            
+              <div class="form-group">
+
+                <label for="inputBib">Bib</label>
+                <input type="text" class="form-control" id="inputBib" name="bib">
+                <h5></h5>
+
+                <label for="inputAge">Age</label>
+                <input type="text" class="form-control" id="inputAge" name="age">
+                <h5></h5>
+
+                <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <select class="form-control" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+                <h5></h5>
+
+                <label for="inputTemp">Race Day Temperature</label>
+                <input type="text" class="form-control" id="inputTemp" placeholder="In Fahrenheit..." name="temp">
+                <h5></h5>
+
+                <label for="inputTime">Ideal Finish Time</label>
+                <input type="text" class="form-control" id="inputHours" placeholder="Hours..." name="timeHours">
+                <input type="text" class="form-control" id="inputMinutes" placeholder="Minutes..." name="timeMinutes">               
+                <h2></h2>
+
+                <input class="btn btn-primary" type="submit" value="Submit">
+              </div>
+            </form>
+          </div>
+        </div>  
+      </div>
+      <div class="col-md-5 col-md-5">
+          <h3 class="text-center">Results</h3>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Split Results</h3>
+            </div>
+            <div class="panel-body">
+              <form method="POST" action="/send">
+                <div class="form-group">
+                    <ul class="list-group">
+                      <li class="list-group-item">5K Split: <var>data[0]</var></li>
+                      <li class="list-group-item">10K Split: <var>data[1]</var></li>
+                      <li class="list-group-item">15K Split: <var>data[2]</var></li>
+                      <li class="list-group-item">20K Split: <var>data[3]</var></li>
+                      <li class="list-group-item">Half Split: <var>data[4]</var></li>
+                      <li class="list-group-item">25K Split: <var>data[5]</var></li>
+                      <li class="list-group-item">30K Split: <var>data[6]</var></li>
+                      <li class="list-group-item">35K Split: <var>data[7]</var></li>
+                      <li class="list-group-item">40K Split: <var>data[8]</var></li>
+                      <li class="list-group-item">Finish Time: <var>data[9]</var></li>
+                    </ul>
+                </div>
+              </form>
+            </div>
+          </div>  
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <a href="#" class="thumbnail">
+          <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/MarathonMap2.PNG?raw=true">
+      </a>
+    </div>
+  </div>
+
+</body>
+
+</html>
