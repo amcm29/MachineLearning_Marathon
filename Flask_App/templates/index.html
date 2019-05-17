@@ -71,7 +71,7 @@
             <h3 class="panel-title">Input Details</h3>
           </div>
           <div class="panel-body">
-            <form method="POST" action="/send">
+            <form method="POST" action="/send" id="form1">
             
               <div class="form-group">
 
@@ -100,9 +100,10 @@
                 <input type="text" class="form-control" id="inputMinutes" placeholder="Minutes..." name="inputMinutes">               
                 <h2></h2>
 
-                <input class="btn btn-primary" type="submit" value="Submit">
+                <!-- <input class="btn btn-primary" type="submit" value="Submit"> -->
               </div>
             </form>
+            <button type="submit" form="form1" value="Submit">Submit</button>
           </div>
         </div>  
       </div>
