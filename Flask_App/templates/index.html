@@ -84,9 +84,9 @@
                 <input type="text" class="form-control" id="inputAge" name="inputAge">
                 <h5></h5>
 
-                <label class="input-group-text" for="inputGroupSelect01" name="inputGroupSelect01">Gender</label>
-                <select class="form-control" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
+                <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <select class="form-control" id="inputGroupSelect01" name="inputGroupSelect01">
+                    <option select>Choose...</option>
                     <option value="1">Male</option>
                     <option value="2">Female</option>
                 </select>
@@ -118,16 +118,16 @@
               <form method="GET" action="/send">
                 <div class="form-group">
                     <ul class="list-group">
-                      <li class="list-group-item">5K Split: <var>{{data}}</var></li>
-                      <li class="list-group-item">10K Split: <var>data[1]</var></li>
-                      <li class="list-group-item">15K Split: <var>data[2]</var></li>
-                      <li class="list-group-item">20K Split: <var>data[3]</var></li>
-                      <li class="list-group-item">Half Split: <var>data[4]</var></li>
-                      <li class="list-group-item">25K Split: <var>data[5]</var></li>
-                      <li class="list-group-item">30K Split: <var>data[6]</var></li>
-                      <li class="list-group-item">35K Split: <var>data[7]</var></li>
-                      <li class="list-group-item">40K Split: <var>data[8]</var></li>
-                      <li class="list-group-item">Finish Time: <var>data[9]</var></li>
+                      <li class="list-group-item">5K Split: <var>{{data5K}}</var></li>
+                      <li class="list-group-item">10K Split: <var>{{data10K}}</var></li>
+                      <li class="list-group-item">15K Split: <var>{{data15K}}</var></li>
+                      <li class="list-group-item">20K Split: <var>{{data20K}}</var></li>
+                      <li class="list-group-item">Half Split: <var>{{dataHalf}}</var></li>
+                      <li class="list-group-item">25K Split: <var>{{data25K}}</var></li>
+                      <li class="list-group-item">30K Split: <var>{{data30K}}</var></li>
+                      <li class="list-group-item">35K Split: <var>{{data35K}}</var></li>
+                      <li class="list-group-item">40K Split: <var>{{data40K}}</var></li>
+                      <li class="list-group-item">Finish Time: <var>{{dataFinal}}</var></li>
                     </ul>
                 </div>
               </form>
