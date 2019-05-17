@@ -38,7 +38,6 @@ def send():
         else:
             F = 1
             M = 0
-        print(request.form['inputGroupSelect01'])
 
         temperature = int(request.form['inputTemp'])
         input_variables = pd.DataFrame([[bib, age,  inputTime, F, M, temperature]],
@@ -48,18 +47,17 @@ def send():
 
         # model_5K = None
 
-        def model_5K():
+        # def model_5K_f():
             # Load the model from the file
-            global model_5K
-            model_5K = LinearRegression()
-            model_5K = joblib.load('model_5K.pkl')
+            # global model_5K
+            # model_5K = LinearRegression()
+        model_5K = joblib.load('model/model_5K.pkl')
         prediction5K = model_5K.predict(input_variables)
 
-        stage_5K = int(datetime.timedelta(seconds=round(prediction5K)))
-
-        return render_template('index.html',
-                                    data=stage_5K)
-
+        stage_5K = datetime.timedelta(seconds=int(prediction5K[0]))
+        print('hi')
+        print(stage_5K)
+        return render_template('index.html', data=stage_5K)
 
 
 # model_10K = None
