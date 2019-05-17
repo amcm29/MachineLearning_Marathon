@@ -5,9 +5,13 @@ from flask import Flask, request, redirect, url_for, jsonify, render_template
 import pickle
 from sklearn.externals import joblib
 import datetime
+from sklearn.linear_model import LinearRegression
 
-with open(f'model_5K.pkl', 'rb') as f:
-    model_5K = pickle.load(f)
+# with open('model_5K.pkl', 'rb') as f:
+#     model_5K = pickle.load(f)
+
+model_5K = joblib.load("model/model_5K.pkl")
+
 
 app = Flask(__name__)
 
@@ -17,7 +21,8 @@ def index():
         # Just render the initial form, to get input
         return(render_template('index.html'))
 
-
+@app.route("/send", methods=['GET', 'POST'])
+def send():
     if request.method == 'POST':
         # Extract the input
         bib = int(request.form['inputBib'])
@@ -27,10 +32,14 @@ def index():
         timem = int(request.form['inputMinutes'])
         timeMsec=timem*60
         inputTime = (timeMsec + timeHsec)
-        if inputGroupSelector01 == 'Male':
-            F = 0 and M = 1
+        if request.form['inputGroupSelect01'] == '1':
+            F = 0
+            M = 1
         else:
-            F = 1 and M = 0
+            F = 1
+            M = 0
+        print(request.form['inputGroupSelect01'])
+
         temperature = int(request.form['inputTemp'])
         input_variables = pd.DataFrame([[bib, age,  inputTime, F, M, temperature]],
                                         columns=['Bib', 'Age', 'Official Time Duration', 'F', 'M','Temp (F)'],
@@ -42,14 +51,14 @@ def index():
         def model_5K():
             # Load the model from the file
             global model_5K
-            model_5K = joblib.load('model_5K.pk1')
+            model_5K = LinearRegression()
+            model_5K = joblib.load('model_5K.pkl')
         prediction5K = model_5K.predict(input_variables)
 
-        results_5K = str(datetime.timedelta(seconds=round(prediction5K)))
+        stage_5K = int(datetime.timedelta(seconds=round(prediction5K)))
 
         return render_template('index.html',
-                                    data[0]=results_5K,
-                                    )
+                                    data=stage_5K)
 
 
 
@@ -58,7 +67,7 @@ def index():
 # def load_model_10K():
 #     # Load the model from the file
 #     global model_10K
-#     model_10K = joblib.load('model_10K.pk1')
+#     model_10K = joblib.load('model_10K.pkl')
 # prediction10K = model_10K.predict(user_10K_data)
 
 # model_15K = None
@@ -66,7 +75,7 @@ def index():
 # def load_model_15K():
 #     # Load the model from the file
 #     global model_15K
-#     model_15K = joblib.load('model_15K.pk1')
+#     model_15K = joblib.load('model_15K.pkl')
 # prediction15K = model_15K.predict(user_15K_data)
 
 # model_20K = None
@@ -74,7 +83,7 @@ def index():
 # def load_model_20K():
 #     # Load the model from the file
 #     global model_20K
-#     model_20K = joblib.load('model_20K.pk1')
+#     model_20K = joblib.load('model_20K.pkl')
 # prediction20K = model_20K.predict(user_20K_data)
 
 # model_Half = None
@@ -82,7 +91,7 @@ def index():
 # def load_model_Half():
 #     # Load the model from the file
 #     global model_Half
-#     model_Half = joblib.load('model_Half.pk1')
+#     model_Half = joblib.load('model_Half.pkl')
 # predictionHalf = model_Half.predict(user_half_data)
 
 # model_25K = None
@@ -90,7 +99,7 @@ def index():
 # def load_model_25K():
 #     # Load the model from the file
 #     global model_25K
-#     model_25K = joblib.load('model_25K.pk1')
+#     model_25K = joblib.load('model_25K.pkl')
 # prediction25K = model_25K.predict(user_25K_data)
 
 # model_30K = None
@@ -98,7 +107,7 @@ def index():
 # def load_model_30K():
 #     # Load the model from the file
 #     global model_30K
-#     model_30K = joblib.load('model_30K.pk1')
+#     model_30K = joblib.load('model_30K.pkl')
 # prediction30K = model_30K.predict(user_30K_data)
 
 # model_35K = None
@@ -106,7 +115,7 @@ def index():
 # def load_model_35K():
 #     # Load the model from the file
 #     global model_35K
-#     model_35K = joblib.load('model_35K.pk1')
+#     model_35K = joblib.load('model_35K.pkl')
 # prediction35K = model_35K.predict(user_35K_data)
 
 # model_40K = None
@@ -114,7 +123,7 @@ def index():
 # def load_model_40K():
 #     # Load the model from the file
 #     global model_40K
-#     model_40K = joblib.load('model_40K.pk1')
+#     model_40K = joblib.load('model_40K.pkl')
 # prediction40K = model_40K.predict(user_40K_data)
 
 # model_Final = None
@@ -122,7 +131,7 @@ def index():
 # def load_model_Final():
 #     # Load the model from the file
 #     global model_Final
-#     model_Final= joblib.load('model_Final.pk1')
+#     model_Final= joblib.load('model_Final.pkl')
 # predictionFinal = model_Final.predict(user_final_data)
 
 
