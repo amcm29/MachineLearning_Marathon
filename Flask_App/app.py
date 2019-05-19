@@ -20,6 +20,12 @@ def index():
         # Just render the initial form, to get input
         return(render_template('index.html'))
 
+@app.route("/machine.html", methods=['GET', 'POST'])
+def machine():
+    if request.method == 'POST':
+        return redirect(url_for("index"))
+    return render_template('machine.html')
+
 @app.route("/send", methods=['GET', 'POST'])
 def send():
     if request.method == 'POST':
